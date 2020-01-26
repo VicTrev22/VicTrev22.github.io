@@ -1,17 +1,46 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
-	<head>
-		<title>Space Clicker</title>
-	</head>
-	<body>
-		<script type="text/javascript">
-    		var clicks = 0;
-    		function onClick() {
-			clicks += 1;
-        		document.getElementById("clicks").innerHTML = clicks;
-    };
-    </script>
-    <button type="button" onClick="onClick()">Click me</button>
-    <p>Clicks: <a id="clicks">0</a></p>
-	</body>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+       <script type="text/javascript">
+
+           function load()
+           {
+           if(localStorage.getItem("counter")!=null)
+                 {
+                     counter = Number(localStorage.getItem("counter"));
+                     document.getElementById("counterValue").innerHTML = counter;
+                 }
+
+           }
+         var counter= 0;        
+
+         function counterFn() {          
+            counter = Number(localStorage.getItem("counter"));
+
+            console.log(counter);
+            counter += 1;
+            localStorage.setItem("counter",counter);             
+            document.getElementById("counterValue").innerHTML = counter;
+         }
+
+       </script>
+
+
+    </head>
+    <body onload="load();">
+
+    <button type="button" onclick="counterFn()">Next</button>
+
+    <p>Number:<a id="counterValue">0</a></p>
+
+    </body>
 </html>
